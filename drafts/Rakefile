@@ -1,0 +1,73 @@
+# modified from
+# http://lincolnmullen.com/blog/rake-and-pandoc/
+# http://tutorials.jumpstartlab.com/topics/systems/automation.html
+
+require "rake/clean"
+require "time"
+
+time_now = Time.now.strftime("%Y-%m-%d_%a_%H-%M-%S-%L")
+# Define inputs and outputs
+# Dir.chdir "drafts"
+MDFILES = FileList["*.md"]  # change to "**/*.md" if you want to get .md frome very subfolder.
+PDFS = MDFILES.ext(".pdf")
+DOCX = MDFILES.ext(".docx")
+HTML=MDFILES.ext(".html")
+# DOCX = MDFILES.ext(".rtf")
+
+# Clobber only PDFs and DOCXs we've generated
+CLOBBER.include(PDFS, DOCX, HTML)
+
+# Define bibliography and CSL files
+BIB = "../bib/biblio.bib"  # TODO: needs to read this from header of file
+CSL = "../csl/chicago-author-date.csl" # TODO: needs to read this from header of file
+
+desc "Build all documents in all formats."
+task :default => [:pdfs, :docx]
+
+task :draft_report => [:pdfs, :docx]
+ 
+desc "Build PDFs of all documents."
+task :pdfs => PDFS
+
+desc "Build DOCXs of all documents."
+task :docx => DOCX
+
+# desc "Build HTML of all documents."
+# task :html => HTML
+
+#  build pandoc string
+
+# pandoc -S -o ./exports/draft.docx --filter pandoc-citeproc 00_A-Details.md 01_chapter1-Intro.md 02_chapter2-Context.md
+
+
+
+# Build PDFs from Markdown source
+rule ".pdf" => ".md" do |t|
+  ## one file at a time:
+  # sh "pandoc #{t.source} -S -o ../export/#{t.name} --bibliography=#{BIB} --filter pandoc-citeproc --csl=#{CSL}"
+  sh "pandoc -S -o ../export/draft_#{time_now}.pdf --filter pandoc-citeproc #{MDFILES}"
+  # sh "open ../export/#{t.name}"
+  # sh "open ../export/draft_#{Time.now}.pdf"
+  sh "open ../export/draft_#{time_now}.pdf"
+  sh "export pdf finished"
+end
+
+# Build DOCXs from Markdown source
+rule ".docx" => ".md" do |t|
+  ## one file at a time:
+  # sh "pandoc #{t.source} -S -o ../export/#{t.name} --filter pandoc-citeproc --bibliography=#{BIB} --reference-docx=../doc_style/reference.docx  --csl=#{CSL}"
+  ## concatenate all files .md :
+  sh "pandoc -S -o ../export/draft_#{time_now}.docx --filter pandoc-citeproc #{MDFILES}  --reference-docx=../doc_style/reference.docx"
+  # sh "open ../export/#{t.name}"
+  # sh "open ../export/draft_#{Time.now}.docx"
+  sh "open ../export/draft_#{time_now}.docx"
+  sh "export docx finished"
+end
+
+# # Build HTML from Markdown source
+# rule ".html" => ".md" do |t|
+#   sh "pandoc #{t.source} -S -o ../export/#{t.name} --filter pandoc-citeproc --bibliography=#{BIB} --reference-docx=../doc_style/reference.docx"  # --csl=#{CSL}
+#   sh "open ../export/#{t.name}"
+#   sh "export html finished"
+# end
+# to specify CSS `$ pandoc foo.md -s -c buttondown.css -o foo.html`
