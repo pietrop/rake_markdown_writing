@@ -1,9 +1,18 @@
-# How to use
-How to use `rake` to export and convert markdown using pandoc, into word and pdf.
+# rake_markdown_writing - DRAFT
 
-this rake script scports all the files in the draft folder with extension `.md`.
+What is this? It's a way to speed up (academic) writing  with markdown.
 
+## How to use
 
+To use, cd into the drafts folder, and simply run `rake`, that's it.
+
+This will export and convert all markdown file with extension `.md` using pandoc, into word and pdf.
+
+It also generates bibliography, using a bibtext file specied in the file's header, for references mentioned in the markdown files as `[@uk_trade_and_investment_landscaping_2015]` (similar to zotero word plugin).
+
+Using `doc_style/reference.docx` you can specify the style of the word document.
+
+And you can also add images...
 
 
 ## project file structure
@@ -23,20 +32,21 @@ this rake script scports all the files in the draft folder with extension `.md`.
 │   └── chicago-author-date.csl
 │
 ├── doc_style
-│   └── reference.docx
+│   ├── reference.docx
+│   └── sample.jpg
 ├── drafts
+│   ├── A_Chapter01.md
+│   ├── B_Chapter02.md
 │   ├── Rakefile
-│   ├── img
-│   │   └── sample_04.jpg
-│   ├── bibliography.md
-│   └── test.md
+│   ├── Z_biblio.md
+│   └── img
+│       └── sample_04.jpg
 └── export
-    ├── test.docx
-    └── test.pdf
+    ├── draft_2015-07-21_Tue_00-16-14-871.docx
+    └── draft_2015-07-21_Tue_00-16-14-871.pdf
 
 
-4 directories, 10 files
-
+6 directories, 16 files
 ```
 
 `bibliography.md` only contains the bibliography heading, and is a place holder for the automatic generated bibliography on compile.
