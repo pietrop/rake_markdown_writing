@@ -2,6 +2,8 @@
 
 What is this? It's a way to speed up (academic) writing  with markdown.
 
+<!-- http://rmarkdown.rstudio.com/word_document_format.html -->
+
 ## How to use
 
 To use, cd into the drafts folder, and simply run `rake`, that's it.
@@ -13,6 +15,21 @@ It also generates bibliography, using a bibtext file specied in the file's heade
 Using `doc_style/reference.docx` you can specify the style of the word document.
 
 And you can also add images...
+
+## Setup
+what you need to install
+
+- pandoc
+	does the converison markdown -> pdf/word
+- ruby
+	to run the rake file(?)
+
+Optional 
+
+- zotero(firefox plugin)
+	to generate `bibtext` files.
+- sublime text
+	to write markdown with sytax hilight and get live preview(needs plugins)
 
 
 ## project file structure
@@ -239,6 +256,21 @@ $ w2m path/to/document.docx
 
 <!-- do another bash script to convert word back to markdown as wella s folder structure -->
 
+## Footnotes
+<!-- footnotes 
+http://wcm1.web.rice.edu/my-academic-book-in-plain-text.html 
+
+ as crucial to establishing the credibility of
+unconventional therapies.[^9]
+
+[^9]: See Charles E. Rosenberg, “The Therapeutic Revolution: Medicine, Meaning, and Social Change in Nineteenth-Century America,” *Perspectives in Biology and Medicine* 20 (Summer 1977): 485–506;
+Steven Shapin, “Trusting George Cheyne: Scientific Expertise, Common Sense, and Moral Authority in Early Eighteenth-Century Dietetic  Medicine,” *Bulletin of the History of Medicine* 77 (Summer 2003): 263–297; Cayleff, *Wash and Be Healed*. For an account of Harriet Beecher Stowe's conversion to hydropathy that reflects this historiography and emphasizes broad cultural factors, see Joan D.
+Hedrick, *Harriet Beecher Stowe: A Life* (New York: Oxford University Press, 1994), 173--85.
+
+https://raw.githubusercontent.com/wcaleb/website/master/research/trusting-water-cure.txt
+
+https://scholarship.rice.edu/bitstream/handle/1911/64493/mcdaniel-shear2012.pdf
+-->
 
 ## Export markdown to word /pdf
 <!-- run rake in terminal from drafts folder
@@ -250,9 +282,13 @@ Screenshots:
 that's it.
  -->
 
+<!-- 
+$ pandoc -S -o ../export/draft_terminal-test.docx --filter pandoc-citeproc A_Chapter01.md B_Chapter02.md Z_biblio.md  --reference-docx=../doc_style/reference.docx 
 
+$ open ../export/draft_terminal-test.docx 
+-->
 
- ## Sources and resources
+## Sources and resources
 
 - [http://lincolnmullen.com/blog/rake-and-pandoc/]
 - [rake languag] (http://martinfowler.com/articles/rake.html) - if you want to modify the script

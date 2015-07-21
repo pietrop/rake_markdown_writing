@@ -25,6 +25,10 @@ desc "Build all documents in all formats."
 task :default => [:pdfs, :docx]
 
 task :draft_report => [:pdfs, :docx]
+
+task :draft_report_pdf => [:pdfs]
+
+task :draft_report_word => [:docx]
  
 desc "Build PDFs of all documents."
 task :pdfs => PDFS
@@ -49,7 +53,7 @@ rule ".pdf" => ".md" do |t|
   # sh "open ../export/#{t.name}"
   # sh "open ../export/draft_#{Time.now}.pdf"
   sh "open ../export/draft_#{time_now}.pdf"
-  sh "export pdf finished"
+  sh "echo exporting pdf"
 end
 
 # Build DOCXs from Markdown source
@@ -57,12 +61,14 @@ rule ".docx" => ".md" do |t|
   ## one file at a time:
   # sh "pandoc #{t.source} -S -o ../export/#{t.name} --filter pandoc-citeproc --bibliography=#{BIB} --reference-docx=../doc_style/reference.docx  --csl=#{CSL}"
   ## concatenate all files .md :
-  sh "pandoc -S -o ../export/draft_#{time_now}.docx --filter pandoc-citeproc #{MDFILES}  --reference-docx=../doc_style/reference.docx"
+  sh "pandoc -S -s -o ../export/draft_#{time_now}.docx --filter pandoc-citeproc #{MDFILES}  --reference-docx=../doc_style/reference.docx"
   # sh "open ../export/#{t.name}"
   # sh "open ../export/draft_#{Time.now}.docx"
-  sh "open ../export/draft_#{time_now}.docx"
-  sh "export docx finished"
+  sh "echo exporting docx"
+  # sh "open ../export/draft_#{time_now}.docx"
 end
+
+
 
 # # Build HTML from Markdown source
 # rule ".html" => ".md" do |t|
