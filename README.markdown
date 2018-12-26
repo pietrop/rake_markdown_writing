@@ -83,9 +83,9 @@ Optional
 1. Learn markdown 
 First thing first, learn markdown
 
-1.1 [Interactive tutorial](http://markdowntutorial.com)
+2. [Interactive tutorial](http://markdowntutorial.com)
 
-1.2 [reference guide](https://guides.github.com/features/mastering-markdown/) 
+3. [reference guide](https://guides.github.com/features/mastering-markdown/) 
 
 ## Setup zotero on firefox plugin
 
