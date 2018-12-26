@@ -69,7 +69,7 @@ Optional
 `bibliography.md` only contains the bibliography heading, and is a place holder for the automatic generated bibliography on compile.
 
 
-## Markdown(academic) writign workflow
+## Markdown(academic) writing workflow
 
 <!-- high level overview,
 - add references in zotero, 
