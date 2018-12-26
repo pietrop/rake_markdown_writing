@@ -32,7 +32,7 @@ Optional
 	to write markdown with sytax hilight and get live preview(needs plugins)
 
 
-## project file structure
+## project file structure
 
 
 ```
@@ -179,7 +179,7 @@ NB: the implications of this `reference.docx` is that you can style your documen
 
 
 
-###`abstract`
+### `abstract`
 `abstract`, and abstract is what it says on the thin.
 
 then you got your markdown text. 
@@ -245,7 +245,7 @@ give letter to order them up
 `AChapter1.md`, `BChapter2.md`, `ZBibliography.md`
 
 
-## Convert word to markdown
+## Convert word to markdown
 if you end up collaborating with someone who is using word, and don't want to disrupt your "master file" workflow. To [convert word to markdown](http://word-to-markdown.herokuapp.com) you can use the online app. or you can [download the sorucecode](https://github.com/benbalter/word-to-markdown) (`gem install word-to-markdown`).
 
 and from command line:
@@ -288,7 +288,7 @@ $ pandoc -S -o ../export/draft_terminal-test.docx --filter pandoc-citeproc A_Cha
 $ open ../export/draft_terminal-test.docx 
 -->
 
-## Sources and resources
+## Sources and resources
 
 - [http://lincolnmullen.com/blog/rake-and-pandoc/]
 - [rake languag] (http://martinfowler.com/articles/rake.html) - if you want to modify the script
