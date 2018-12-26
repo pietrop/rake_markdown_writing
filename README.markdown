@@ -80,12 +80,10 @@ Optional
 
 ### Learn markdown 
 
-1. Learn markdown 
 First thing first, learn markdown
 
-2. [Interactive tutorial](http://markdowntutorial.com)
-
-3. [reference guide](https://guides.github.com/features/mastering-markdown/) 
+- [Interactive tutorial](http://markdowntutorial.com)
+- [reference guide](https://guides.github.com/features/mastering-markdown/) 
 
 ## Setup zotero on firefox plugin
 
