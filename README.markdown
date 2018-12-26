@@ -32,7 +32,7 @@ Optional
 	to write markdown with sytax hilight and get live preview(needs plugins)
 
 
-## project file structure
+## Project file structure
 
 
 ```
@@ -179,7 +179,7 @@ NB: the implications of this `reference.docx` is that you can style your documen
 
 
 
-###`abstract`
+### `abstract`
 `abstract`, and abstract is what it says on the thin.
 
 then you got your markdown text. 
@@ -233,7 +233,7 @@ usin it with the name of the language after the fenced block gives the color hil
 if you want a nice separation from your code and your text example, you can add  `---` before and after the code, to add separation lines.
 
 
-## Preview in browser
+## Preview in browser
 
 <!-- sublime plugin + live preview/reload-->
 
@@ -288,7 +288,7 @@ $ pandoc -S -o ../export/draft_terminal-test.docx --filter pandoc-citeproc A_Cha
 $ open ../export/draft_terminal-test.docx 
 -->
 
-## Sources and resources
+## Sources and resources
 
 - [http://lincolnmullen.com/blog/rake-and-pandoc/]
 - [rake languag] (http://martinfowler.com/articles/rake.html) - if you want to modify the script
